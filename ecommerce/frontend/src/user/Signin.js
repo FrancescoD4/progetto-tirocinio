@@ -1,20 +1,23 @@
 import React, { useState } from 'react';
 import { Container } from 'react-bootstrap';
 import { Redirect} from 'react-router-dom';
-import { signin, authenticate } from '../auth';
+import { signin, authenticate, isAuthenticated } from '../auth';
 
 const Signin = () => {
 
     //sato del componente, ogni volta che l'input cambia si deve catturare l'evento e aggiornare lo stato
     const [values, setValues] = useState({
-        email: 'mario@gmail.com',
-        password: 'mmmmm5',
+        email: 'seby@gmail.com',
+        password: 'sssss5',
         error: '',
         loading: false,
         redirectToReferrer: false//dopo una signin con successo viene posto a true
     });
 
+    
     const { email, password, loading, error, redirectToReferrer } = values;
+    const {user} = isAuthenticated();
+
 
     //funzione che ritorna un'altra funzione, dinamicamente aggiorna una chiave dello stato del componente(o il capo email, o pass o nome)
     const handleChange = name => event => {
@@ -58,10 +61,15 @@ const Signin = () => {
     );
 
     const redirectUser = () => {
-        if(redirectToReferrer) {
-            return <Redirect to="/">
-
-            </Redirect>
+        if (redirectToReferrer) {
+            if(user && user.role ===1){
+                return <Redirect to="/admin/dashboard" />
+            } else {
+                return <Redirect to="user/dashboard"/>
+            }
+        }
+        if (isAuthenticated()) {
+            return <Redirect to="/"></Redirect>
         }
     }
 
