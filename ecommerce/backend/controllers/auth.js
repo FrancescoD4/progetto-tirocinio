@@ -5,7 +5,6 @@ const { errorHandler } = require('../helpers/dbErrorHandler');
 
 // using promise
 exports.signup = (req, res) => {
-    // console.log("req.body", req.body);
     const user = new User(req.body);
     user.save((err, user) => {
         if (err) {
@@ -48,14 +47,14 @@ exports.signin = (req, res) => {
     User.findOne({ email }, (err, user) => {
         if (err || !user) {
             return res.status(400).json({
-                error: 'User with that email does not exist. Please signup'
+                error: "Un utente con quell'email non esiste. Per favore, registrati"
             });
         }
         // if user is found make sure the email and password match
         // create authenticate method in user model
         if (!user.authenticate(password)) {
             return res.status(401).json({
-                error: 'Email and password dont match'
+                error: "Email e password non corrispondono"
             });
         }
         // generate a signed token with user id and secret
@@ -70,7 +69,7 @@ exports.signin = (req, res) => {
 
 exports.signout = (req, res) => {
     res.clearCookie('t');
-    res.json({ message: 'Signout success' });
+    res.json({ message: "Logout eseguito con successo" });
 };
 
 exports.requireSignin = expressJwt({
@@ -83,7 +82,7 @@ exports.isAuth = (req, res, next) => {
     let user = req.profile && req.auth /*&& req.profile._id == req.auth._id*/;
     if (!user) {
         return res.status(403).json({
-            error: 'Access denied'
+            error: 'Accesso negato'
         });
     }
     console.log('Autenticato')
@@ -93,13 +92,9 @@ exports.isAuth = (req, res, next) => {
 exports.isAdmin = (req, res, next) => {
     if (req.profile.role === 0) {
         return res.status(403).json({
-            error: 'Admin resourse! Access denied'
+            error: 'Risorsa protetta! Accesso consenito solo agli amministratori'
         });
     }
     next();
 };
 
-/**
- * google login full
- * https://www.udemy.com/instructor/communication/qa/7520556/detail/
- */
