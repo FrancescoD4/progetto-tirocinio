@@ -27,17 +27,17 @@ const AddProduct = () => {
         description,
         price,
         categories,
-        category,
-        shipping,
+        // category,
+        // shipping,
         quantity,
         loading,
         error,
         createdProduct,
-        redirectToProfile,
+        // redirectToProfile,
         formData
     } = values;
 
-    // load categories and set form data
+    // load categories and set form data 
     const init = () => {
         getCategories().then(data => {
             if (data.error) {

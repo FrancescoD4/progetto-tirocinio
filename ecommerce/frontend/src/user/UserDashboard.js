@@ -2,7 +2,8 @@ import React from 'react';
 import Card from 'react-bootstrap/Card'
 import ListGroup from 'react-bootstrap/ListGroup'
 import { isAuthenticated } from '../auth';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import Reusable from '../core/Reusable';
 
 const Dashboard = () => {
 
@@ -55,15 +56,19 @@ const Dashboard = () => {
     }
 
     return (
-        <div className="container row mt-4">
-            <div className="col-3">
-                {userLinks()}
-            </div>
-            <div className="col-9">
-                {userInfo()}
-                {purchaseHistory()}
+        <div>
+            <Reusable title="User Dashboard" description="" _margin="15vh"></Reusable>
+            <div className="container row offset-md-2">
+                <div className="col-3">
+                    {userLinks()}
+                </div>
+                <div className="col-9">
+                    {userInfo()}
+                    {purchaseHistory()}
+                </div>
             </div>
         </div>
+
     )
 }
 

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Container } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import { signup } from '../auth';
+import Reusable from '../core/Reusable.js';
+import '../core/Reusable.css';
 
 const Signup = () => {
 
@@ -58,7 +60,7 @@ const Signup = () => {
     );
 
     const signUpForm = () => (
-        <form className="col-md-4 offset-md-4 mt-5">
+        <form className="col-md-4 offset-md-4 text-center mt-5">
             <div className="form-group my-3">
                 <label className="text-muted">Nome</label>
                 <input onChange={handleChange('name')} type="text" className="form-control" value={name}/>
@@ -83,6 +85,7 @@ const Signup = () => {
 
     return (
         <Container >
+            <Reusable title="Registrati" description="" _margin="10vh"></Reusable>
             {showSuccess()}
             {showError()}
             {signUpForm()}

@@ -1,0 +1,11 @@
+.jumbotron {
+    background-image: url('../../src/reuseImages/logo_tagliato.png');  
+    background-repeat:no-repeat;
+    background-position: center;
+    height: 30vh;
+}
+
+.bottom{
+    padding-top: 30vh;
+}
+

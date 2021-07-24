@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Container } from 'react-bootstrap';
 import { Redirect} from 'react-router-dom';
 import { signin, authenticate, isAuthenticated } from '../auth';
+import Reusable from '../core/Reusable';
+
 
 const Signin = () => {
 
@@ -74,7 +76,7 @@ const Signin = () => {
     }
 
     const signUpForm = () => (
-        <form className="col-md-4 offset-md-4 mt-5">
+        <form className="col-md-4 offset-md-4 text-center mt-5">
 
             <div className="form-group my-3">
                 <label className="text-muted">Email</label>
@@ -97,6 +99,7 @@ const Signin = () => {
         <Container >
             {showLoading()}
             {showError()}
+            <Reusable title="Accedi" description="" _margin="10vh"></Reusable>
             {signUpForm()}
             {redirectUser()}
         </Container>

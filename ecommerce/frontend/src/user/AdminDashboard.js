@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card'
 import ListGroup from 'react-bootstrap/ListGroup'
 import { isAuthenticated } from '../auth';
 import { Link } from 'react-router-dom'
+import Reusable from '../core/Reusable';
 
 const AdminDashboard = () => {
 
@@ -10,24 +11,26 @@ const AdminDashboard = () => {
 
     const adminLinks = () => {
         return (
-            <Card>
-                <Card.Header>User Links</Card.Header>
-                <ListGroup variant="flush">
-                    <ListGroup.Item className="text-center">
-                        <Link to="/create/category">Crea categoria</Link>
-                    </ListGroup.Item>
-                    <ListGroup.Item className="text-center">
-                        <Link to="/create/product">Crea prodotto</Link>
-                    </ListGroup.Item>
-                </ListGroup>
-            </Card>
+            <div className="container">
+                <Card>
+                    <Card.Header>User Links</Card.Header>
+                    <ListGroup variant="flush">
+                        <ListGroup.Item className="text-center">
+                            <Link to="/create/category">Crea categoria</Link>
+                        </ListGroup.Item>
+                        <ListGroup.Item className="text-center">
+                            <Link to="/create/product">Crea prodotto</Link>
+                        </ListGroup.Item>
+                    </ListGroup>
+                </Card>
+            </div>
         )
     }
 
     const adminInfo = () => {
         return (
             <div>
-                <Card border="danger" style={{ width: '18rem' }}>
+                <Card border="danger" style={{ width: '25%' }}>
                     <Card.Header className="text-center">Utente con _id: {_id}</Card.Header>
                     <Card.Body>
                         <ListGroup variant="flush">
@@ -43,14 +46,18 @@ const AdminDashboard = () => {
 
 
     return (
-        <div className="container row mt-4">
-            <div className="col-3">
-                {adminLinks()}
-            </div>
-            <div className="col-9">
-                {adminInfo()}
+        <div>
+            <Reusable title="Admin Dashboard" description="" _margin="15vh"></Reusable>
+            <div className="container row offset-md-2">
+                <div className="col-3">
+                    {adminLinks()}
+                </div>
+                <div className="col-9">
+                    {adminInfo()}
+                </div>
             </div>
         </div>
+
     )
 }
 

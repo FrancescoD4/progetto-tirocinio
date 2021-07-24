@@ -16,7 +16,8 @@ const Routes = () => {
     return (
         <BrowserRouter>
         <Menu></Menu>
-            <Switch>
+        <div className="container-fluid">
+        <Switch>
                 <Route path='/' exact component={Home}></Route>
                 <Route path='/signin' exact component={Signin}></Route>
                 <Route path='/signup' exact component={Signup}></Route>
@@ -25,6 +26,7 @@ const Routes = () => {
                 <AdminRoute path='/create/category' exact component={AddCategory}></AdminRoute>
                 <AdminRoute path='/create/product' exact component={AddProduct}></AdminRoute>
             </Switch>
+        </div> 
         </BrowserRouter>
     );
 };
