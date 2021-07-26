@@ -14,7 +14,7 @@ const ProductCard = ({ product }) => {
                 <Card.Text>
                     <section>
                         <h6>descrizione</h6>
-                        <p>{product.description} </p>
+                        <p>{product.description.substring(0,100)} </p>
                     </section>
 
                     <section>
