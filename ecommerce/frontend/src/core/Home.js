@@ -37,16 +37,16 @@ const Home = () => {
 
     return (
         <div className="container">
-            <Reusable title="Benvenuto" description="Puoi trovarci a Melito di Porto Salvo (RC) in via Nazionale 81 " _margin='20vh'/>
-            <div className="row">
-                <h2 className="text-center">Più venduti</h2>
+            <Reusable title="Benvenuto" description="Puoi trovarci a Melito di Porto Salvo (RC) in via Nazionale 81 " _margin='15vh'/>
+            <div className="row justify-content-center">
+                <h2 className="text-center my-4">Più venduti</h2>
                 {productsBySell.map((product, i) => (
                     //il prodotto viene passato come props
                     <ProductCard key={i} product={product}></ProductCard>
                 ))}
             </div>
             <div className="row">
-                <h2 className="text-center">Nuovi arrivi</h2>
+                <h2 className="text-center my-4">Nuovi arrivi</h2>
                 {productsByArrival.map((product, i) => (
                     //il prodotto viene passato come props
                     <ProductCard key={i} product={product}></ProductCard>

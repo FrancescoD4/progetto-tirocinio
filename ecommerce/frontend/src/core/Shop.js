@@ -57,7 +57,7 @@ const Shop = () => {
     const loadMoreButton = () => {
         return (
             size>0 && size>=limit && (
-                <Button onClick={loadMore}>Carica altri prodotti</Button>
+                <Button className="btn btn-outline-danger mt-2 mb-2" onClick={loadMore}>Carica altri prodotti</Button>
             )
         )
     }
@@ -95,10 +95,9 @@ const Shop = () => {
 
     return (
         <div className="container">
-            <Reusable title="Visita il nostro Shop" description="dai un'occhiata ai nostri capi di abbigliamento" _margin='20vh' />
+            <Reusable title="Visita il nostro Shop" description="dai un'occhiata ai nostri capi di abbigliamento" _margin='15vh' />
             <div className="row">
-                <h1>Shop</h1>
-                <div className="col-4">
+                <div className="col-3">
                     <h4>Filtra per categoria:</h4>
                     <ul>
                         <Checkbox categories={categories}
@@ -112,14 +111,15 @@ const Shop = () => {
                         </Radiobox>
                     </ul>
                 </div>
-                <div className="col-8">
-                    <h2 className="mb-4">Prodotti</h2>
-                    <div className="row">
+                <div className="col-9">
+                    <div className="row justify-content-center">
                         {filteredResults.map((product, i) => (
                             <ProductCard key={i} product={product}></ProductCard>
                         ))}
                     </div>
+                    <div className="d-flex justify-content-center ">
                     {loadMoreButton()}
+                    </div>
                 </div>
             </div>
         </div>

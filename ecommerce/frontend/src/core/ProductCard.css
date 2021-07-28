@@ -1,4 +1,12 @@
-.custom{
-    width: 30% ;
-    margin: 1.375rem;
+.product-card-custom {
+    width: 18rem;
+    max-height: 700px;
+    border: 0px;
+    text-align: center;
+    margin:0 1rem 1rem 1rem ;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.product-card-custom__title {
+    font: xx-large;
 }
