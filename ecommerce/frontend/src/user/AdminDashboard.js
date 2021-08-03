@@ -21,6 +21,9 @@ const AdminDashboard = () => {
                         <ListGroup.Item className="text-center">
                             <Link to="/create/product">Crea prodotto</Link>
                         </ListGroup.Item>
+                        <ListGroup.Item className="text-center">
+                            <Link to="/admin/orders">Vedi ordini</Link>
+                        </ListGroup.Item>
                     </ListGroup>
                 </Card>
             </div>

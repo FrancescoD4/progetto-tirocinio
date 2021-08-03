@@ -273,6 +273,7 @@ exports.decreaseQuantity = (req, res, next) => {
         };
     });
 
+    //metodo ottenuto da mongo
     Product.bulkWrite(bulkOps, {}, (error, products) => {
         if (error) {
             return res.status(400).json({
