@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { isAuthenticated } from '../auth';
-import { getProducts, getBraintreeClientToken, processPayment } from './apiCore';
+import { getBraintreeClientToken, processPayment } from './apiCore';
 import DropIn from 'braintree-web-drop-in-react';
 import {emptyCart} from './cartHelpers'; 
 import {createOrder} from './apiCore';

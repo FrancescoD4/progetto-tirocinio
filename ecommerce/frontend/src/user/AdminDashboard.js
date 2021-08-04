@@ -4,6 +4,7 @@ import ListGroup from 'react-bootstrap/ListGroup'
 import { isAuthenticated } from '../auth';
 import { Link } from 'react-router-dom'
 import Reusable from '../core/Reusable';
+import './AdminDashboard.css'
 
 const AdminDashboard = () => {
 
@@ -13,15 +14,15 @@ const AdminDashboard = () => {
         return (
             <div className="container">
                 <Card>
-                    <Card.Header>User Links</Card.Header>
+                    <Card.Header className="text-center">User Links</Card.Header>
                     <ListGroup variant="flush">
-                        <ListGroup.Item className="text-center">
-                            <Link to="/create/category">Crea categoria</Link>
+                        <ListGroup.Item className="text-center voce">
+                            <Link to="/create/category">Gestisci categorie</Link>
                         </ListGroup.Item>
-                        <ListGroup.Item className="text-center">
-                            <Link to="/create/product">Crea prodotto</Link>
+                        <ListGroup.Item className="text-center voce">
+                            <Link to="/create/product">Gestisci prodotto</Link>
                         </ListGroup.Item>
-                        <ListGroup.Item className="text-center">
+                        <ListGroup.Item className="text-center voce">
                             <Link to="/admin/orders">Vedi ordini</Link>
                         </ListGroup.Item>
                     </ListGroup>
@@ -33,7 +34,7 @@ const AdminDashboard = () => {
     const adminInfo = () => {
         return (
             <div>
-                <Card border="danger" style={{ width: '25%' }}>
+                <Card border="danger">
                     <Card.Header className="text-center">Utente con _id: {_id}</Card.Header>
                     <Card.Body>
                         <ListGroup variant="flush">
@@ -51,7 +52,7 @@ const AdminDashboard = () => {
     return (
         <div>
             <Reusable title="Admin Dashboard" description="" _margin="15vh"></Reusable>
-            <div className="container row offset-md-2">
+            <div className="container d-flex">
                 <div className="col-3">
                     {adminLinks()}
                 </div>

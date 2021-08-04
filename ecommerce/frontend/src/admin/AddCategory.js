@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { isAuthenticated } from "../auth";
-import {createCategory} from './apiAdmin'
+import {createCategory, getCategories, deleteCategory} from './apiAdmin'
 
 const AddCategory = () => {
     const [name, setName] = useState('')
     const [error, setError] = useState(false)
     const [success, setSuccess] = useState(false)
+    const [categories, setCategories] = useState([]);
 
     const {user, token }= isAuthenticated();
 
@@ -51,6 +52,44 @@ const AddCategory = () => {
         </Form>
     );
 
+    const loadCategories = () => {
+        getCategories().then(data => {
+            console.log(data);
+            if (data.error) {
+                setError(data.error);
+            } else {
+                setCategories(data);
+            }
+        });
+    }
+
+    const handleClick = (categoryId, userId, token,) => {
+        deleteCategory(categoryId,userId,token);
+        setCategories(categories);
+    }
+
+
+    useEffect(() => {
+        loadCategories();
+    }, [])
+
+    const showCategories = () => {
+        return (
+        <div className="row">
+            {categories.map( (c,i) => {
+                return (
+                    <ul className="list-group mb-2">
+                        <li className="list-group-item d-flex justify-content-between my-3" key={i}>
+                            {c.name}
+                            <Button variant="danger" onClick={() => handleClick(c._id,user._id,token)}>Elimina</Button>
+                        </li>
+                    </ul>
+                )
+            })}
+        </div>
+        )
+    }
+
     const showSuccess = () => {
         if (success) {
             return <h3 className="text-success">La categoria {name} è stata creata</h3>;
@@ -77,6 +116,7 @@ const AddCategory = () => {
                 {showSuccess()}
                 {showError()}
                 {newCategoryFom()}
+                {showCategories()}
                 {goBack()}
             </div>
         </div>
