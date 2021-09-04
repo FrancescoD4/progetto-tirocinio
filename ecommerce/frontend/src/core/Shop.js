@@ -13,7 +13,7 @@ const Shop = () => {
     });
     const [categories, setCategories] = useState([]);
     const [error, setError] = useState(false);
-    const [limit, setLimit] = useState(6);
+    const [limit, setLimit] = useState(8);
     const [skip, setSkip] = useState(0);
     const [size, setSize] = useState(0);
     const [filteredResults, setFilteredResults] = useState([]);
@@ -57,7 +57,7 @@ const Shop = () => {
     const loadMoreButton = () => {
         return (
             size>0 && size>=limit && (
-                <Button className="btn btn-outline-danger mt-2 mb-2" onClick={loadMore}>Carica altri prodotti</Button>
+                <Button className="mt-2 mb-2" variant="danger" onClick={loadMore}>Carica altri prodotti</Button>
             )
         )
     }

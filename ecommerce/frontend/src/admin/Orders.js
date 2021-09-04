@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
-//import { Form, Button, Col, Row, } from "react-bootstrap";
 import { isAuthenticated } from "../auth";
 import { listOrders, getStatusValues, updateOrderStatus } from './apiAdmin'
 import moment from "moment";
-import './Orders';
 
 const Orders = () => {
     const [orders, setOrders] = useState([])

@@ -59,7 +59,6 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
 
     const buy = () => {
         setData({ loading: true });
-        // send the nonce to your server
         // nonce = data.instance.requestPaymentMethod()
         let nonce;
         let getNonce = data.instance
@@ -67,31 +66,22 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
             .then(data => {
                 // console.log(data);
                 nonce = data.nonce;
-                // once you have nonce (card type, card number) send nonce as 'paymentMethodNonce'
-                // and also total to be charged
-                // console.log(
-                //     "send nonce and total to process: ",
-                //     nonce,
-                //     getTotal(products)
-                // );
+                //  nonce (card type, card number) 
                 const paymentData = {
                     paymentMethodNonce: nonce,
                     amount: getTotal(products)
                 };
-
                 processPayment(userId, token, paymentData)
                     .then(response => {
                         console.log(response);
                         // empty cart
                         // create order
-
                         const createOrderData = {
                             products: products,
                             transaction_id: response.transaction.id,
                             amount: response.transaction.amount,
                             address: deliveryAddress
                         };
-
                         createOrder(userId, token, createOrderData)
                             .then(response => {
                                 emptyCart(() => {

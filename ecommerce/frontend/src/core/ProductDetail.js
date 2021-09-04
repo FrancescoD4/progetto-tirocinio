@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-//import { getProducts } from './apiCore';
 import ProductCard from './ProductCard';
 import { read, listRelated } from './apiCore';
 import ShowImage from './ShowImage';

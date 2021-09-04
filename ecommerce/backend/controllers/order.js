@@ -1,10 +1,8 @@
 const { Order, CartItem } = require('../models/order');
 const { errorHandler } = require('../helpers/dbErrorHandler');
-// sendgrid for email npm i @sendgrid/mail
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey('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');
 
-//funziona come un middleware
 exports.orderById = (req, res, next, id) => {
     Order.findById(id)
         .populate('products.product', 'name price')
@@ -28,11 +26,6 @@ exports.create = (req, res) => {
             return res.status(400).json({
                 error: errorHandler(error)
             });
-        }
-        // send email alert to admin
-        // order.address
-        // order.products.length
-        // order.amount
         const emailData = {
             to: 'kaloraat@gmail.com',
             from: 'noreply@ecommerce.com',

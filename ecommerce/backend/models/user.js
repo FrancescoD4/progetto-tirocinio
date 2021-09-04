@@ -24,6 +24,7 @@ const userSchema = new mongoose.Schema(
             type: String,
             trim: true
         },
+        //valore usato per codificare la password
         salt: String,
         role: {
             type: Number,

@@ -14,7 +14,7 @@ const AdminDashboard = () => {
         return (
             <div className="container">
                 <Card>
-                    <Card.Header className="text-center">User Links</Card.Header>
+                    <Card.Header className="text-center">Menu</Card.Header>
                     <ListGroup variant="flush">
                         <ListGroup.Item className="text-center voce">
                             <Link to="/create/category">Gestisci categorie</Link>
@@ -35,7 +35,7 @@ const AdminDashboard = () => {
         return (
             <div>
                 <Card border="danger">
-                    <Card.Header className="text-center">Utente con _id: {_id}</Card.Header>
+                    <Card.Header className="text-center fs-5">Utente con _id: {_id}</Card.Header>
                     <Card.Body>
                         <ListGroup variant="flush">
                             <ListGroup.Item className="text-center"> <h6>{name}</h6></ListGroup.Item>
@@ -47,7 +47,6 @@ const AdminDashboard = () => {
             </div>
         )
     }
-
 
     return (
         <div>
@@ -61,7 +60,6 @@ const AdminDashboard = () => {
                 </div>
             </div>
         </div>
-
     )
 }
 

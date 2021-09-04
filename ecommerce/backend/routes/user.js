@@ -7,7 +7,7 @@ const { userById, read, update, purchaseHistory } = require('../controllers/user
 
 router.get('/secret', requireSignin, (req, res) => {
     res.json({
-        user: 'got here yay'
+        user: req.profile
     });
 });
 

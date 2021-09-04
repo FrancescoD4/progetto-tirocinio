@@ -87,7 +87,7 @@ const AddProduct = () => {
     const newPostForm = () => (
         <div className="container mt-4">
             <Form onSubmit={clickSubmit}>
-                <h4 className="text-center">Aggiungi un prodotto</h4>
+                <h4 className="text-center offset-md-2">Aggiungi un prodotto</h4>
 
                 <Form.Group as={Row} controlId="formFile" className="mb-3">
                     <Form.Label column sm={2}>Foto prodotto</Form.Label>
